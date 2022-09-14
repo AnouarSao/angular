@@ -1,0 +1,50 @@
+<!-- <p>page-list-orders works!</p>
+
+<ul>
+  <li *ngFor='let i of posts'>
+    <div>{{i.client}}</div>
+    <div>{{i.typePresta}}</div>
+  </li>
+</ul> -->
+
+<app-template-full-width
+  [titleEnfant]="titleParent"
+  *ngIf="collection$ | async as collection"
+>
+  <!-- ajouter un tableau -->
+  <app-table-light [headers]="headers">
+    <!-- ici on projète le tableau -->
+    <tr *ngFor="let item of collection">
+      <!--  table data cells (td)-->
+      <td>
+        <app-icon-edit (click)="goToEdit(item)"></app-icon-edit>
+        <app-icon-delete (click)="onDelete(item)"> </app-icon-delete>
+      </td>
+
+      <td>{{ item.typePresta | uppercase }}</td>
+      <td>{{ item.client }}</td>
+      <td>{{ item.nbJours }}</td>
+      <td>{{ item.tjmHt }}</td>
+      <td>{{ item | total }}</td>
+      <td>{{ item | total: true }}</td>
+      <td appState [etat]="item.state">
+        <select (change)="changeState(item, $event)">
+          <!--itérer dans l'enum-->
+          <option
+            *ngFor="let state of states"
+            [selected]="state === item.state"
+            [value]="state"
+          >
+            {{ state }}
+          </option>
+        </select>
+      </td>
+    </tr>
+  </app-table-light>
+  <!-- envoyer collection avec @Input() -->
+  <!-- vérifier aussi dans app-table-light que vous recevez bien collection -->
+</app-template-full-width>
+
+<app-btn styleBtn="btn btn-primary" route="add" label="Ajouter">
+  Ajouter
+</app-btn>

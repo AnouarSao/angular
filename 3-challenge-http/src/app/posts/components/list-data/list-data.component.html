@@ -1,0 +1,25 @@
+<!-- <p>list-data works!</p> -->
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Utilisation du httpModule</h5>
+    <p class="card-text">Accès à une base données par API</p>
+    <a routerLink='/liste' class="btn btn-primary">Cliquer pour obtenir une liste de data</a>
+  </div>
+</div>
+
+<!-- without bootstrap -->
+<!-- <ul>
+  <li *ngFor='let i of list'>
+    <div>{{i.title}}</div>
+  </li>
+</ul> -->
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li *ngFor='let i of list' class="list-group-item">
+      <div>{{i.title}}</div>
+    </li>
+  </ul>
+</div>
+

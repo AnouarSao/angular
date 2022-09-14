@@ -1,0 +1,8 @@
+<!-- <p>page-add-order works!</p> -->
+
+<app-template-full-width titleEnfant="Ajouter une commande">
+  <app-form-order
+  (onSubmitted)='onAdd($event)'
+  [init]="item"
+  ></app-form-order>
+</app-template-full-width>

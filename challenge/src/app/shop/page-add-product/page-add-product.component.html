@@ -1,0 +1,27 @@
+<p>page-add-product works!</p>
+
+<button
+type="button"
+class="btn btn-primary"
+(click)='onAdd()'
+[disabled]='disableButton'
+>Ajouter</button>
+
+<button
+type="button"
+class="btn btn-danger"
+(click)='onRemove()'
+[ngClass]="{'disabled' : panier === 0 }"
+>Supprimer</button>
+
+<p> {{ errorMessage }}</p>
+
+<p *ngIf='panier === 0 '> Vous panier est vide 😢</p>
+
+<p *ngIf='panier === 1'> Vous avez {{panier}} élément dans votre panier </p>
+
+<p *ngIf='panier > 1 ' [ngClass]="{'max' : panier > 3}"> Vous avez {{panier}} éléments dans votre panier </p>
+
+
+
+

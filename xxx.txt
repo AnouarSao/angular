@@ -1,0 +1,36 @@
+onSingleData() {
+    // ajouter un spinner dans this.reponse
+    this.data.onDisplaySingleItem().subscribe(
+      (res) => {
+        console.log(res, 'réponse');
+        return (this.reponse = res);
+      },
+      (error) => {
+        console.error(error, 'error caught in component');
+        // redirect
+        this.router.navigate(['liste']); // ou this.router.navigateByUrl('/liste')
+      },
+      () => {
+        return console.log('done'); // attention de ne rien mettre entre ()
+      }
+    );
+  }
+
+
+
+
+
+
+<div id='content'>
+  <div id="box1">sur une ligne</div> // passer de block à inline
+  <div id="box2">sur une ligne</div>
+</div>
+.row{
+  display: flex;
+}
+.box1{
+  flex:1
+}
+.box2{
+  flex:2
+}
